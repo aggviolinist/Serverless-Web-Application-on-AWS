@@ -1,0 +1,22 @@
+{
+  "name": "serverless-web-application-on-aws",
+  "version": "1.0.0",
+  "description": "Creating a serverless web application on AWS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aggviolinist/Serverless-Web-Application-on-AWS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aggviolinist/Serverless-Web-Application-on-AWS/issues"
+  },
+  "homepage": "https://github.com/aggviolinist/Serverless-Web-Application-on-AWS#readme",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.855.0"
+  }
+}
