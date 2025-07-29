@@ -32,3 +32,4 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r get.zip ./*
 ```
+> ![Alt text](images/architecture.gif?raw=true "The architecture diagram")
