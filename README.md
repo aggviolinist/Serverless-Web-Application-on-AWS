@@ -5,6 +5,7 @@ Creating a serverless web application on AWS
 ### Lambda
 ### DynamoDB
 ### IAM
+### API Gateway
 
 ## DynamoDB
 - Create a dynamDB table with Partition key as coffeeID (String)
@@ -35,3 +36,10 @@ zip -r get.zip ./*
 ## The output 
 Once we run the lambda this is the output
 > ![Alt text](images/lambda.png?raw=true "The lambda queries dynamodb data")
+
+## API Gateway
+Create our API gateway
+ - Create our Route and method (GET)
+ - Under integrations, add the lambda function to connect to it
+> ![Alt text](images/api-gateway.png?raw=true "The lambda queries on our browser")
+
