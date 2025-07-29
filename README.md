@@ -6,6 +6,7 @@ Creating a serverless web application on AWS
 ### DynamoDB
 ### IAM
 ### API Gateway
+### Postman
 
 ## DynamoDB
 - Create a dynamDB table with Partition key as coffeeID (String)
@@ -33,7 +34,7 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r get.zip ./*
 ```
-## The output 
+## The Lambda output 
 Once we run the lambda this is the output
 > ![Alt text](images/lambda.png?raw=true "The lambda queries dynamodb data")
 
@@ -57,4 +58,9 @@ zip -r post.zip ./*
  - Create our Route and method `GET`
  - Under integrations, add the lambda function to connect to HTTP
 > ![Alt text](images/api-gateway.png?raw=true "The lambda queries on our browser")
+
+2. Add a `POST` method and integrate the lambda function to HTTP
+
+## Postman
+Test the HTTP `post` method using Postman. 
 
