@@ -18,7 +18,7 @@ Creating a serverless web application on AWS
 - Link this IAM to Lambda
 
 ## Lambda
-Create a lambda file (nodejs)
+1. Create a `GET` lambda file (nodejs)
 - On the index.mjs
   - Add the table name and the partition key
 - Initialize the folder for node js
@@ -37,9 +37,24 @@ zip -r get.zip ./*
 Once we run the lambda this is the output
 > ![Alt text](images/lambda.png?raw=true "The lambda queries dynamodb data")
 
+2. Create a `POST` lambda file (nodejs)
+- On the index.mjs
+- Initialize the folder for node js
+```sh
+npm init
+``` 
+- Install all the client packages needed for nodejs to work with dynamoDB
+```sh
+npm i @aws-sdk/client-dynamodb
+```
+- Zip the file so that it is ready for upload to lambda
+```sh
+zip -r post.zip ./*
+```
+
 ## API Gateway
-Create our API gateway
- - Create our Route and method (GET)
- - Under integrations, add the lambda function to connect to it
+1. Create our API gateway
+ - Create our Route and method `GET`
+ - Under integrations, add the lambda function to connect to HTTP
 > ![Alt text](images/api-gateway.png?raw=true "The lambda queries on our browser")
 
