@@ -32,4 +32,6 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r get.zip ./*
 ```
+## The output 
+Once we run the lambda this is the output
 > ![Alt text](images/lambda.png?raw=true "The lambda queries dynamodb data")
