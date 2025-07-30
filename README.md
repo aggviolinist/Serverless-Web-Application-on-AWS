@@ -9,20 +9,20 @@ Creating a serverless web application on AWS
 ### Postman
 
 ## DynamoDB
-- Create a dynamDB table with Partition key as coffeeID (String)
-- Add some items to the table
+ - Create a dynamDB table with Partition key as coffeeID (String)
+ - Add some items to the table
 
 ## IAM
-- Add a role `praco-barista-coffee` that:
-  - Sends lambda logs to cloudwatch
-  - A custom inline policy with PutItem,DeleteItem,GetItem,Scan,UpdateItem
-- Link this IAM to Lambda
+ - Add a role `praco-barista-coffee` that:
+    - Sends lambda logs to cloudwatch
+    - A custom inline policy with PutItem,DeleteItem,GetItem,Scan,UpdateItem
+ - Link this IAM to Lambda
 
 ## Lambda
 1. `Create a GET lambda file (nodejs)`
-- On the index.mjs
-  - Add the table name and the partition key(primary id)
-- Initialize the folder for node js
+ - On the index.mjs
+    - Add the table name and the partition key(primary id)
+    - Initialize the folder for node js
 ```sh
 npm init
 ``` 
@@ -30,7 +30,7 @@ npm init
 ```sh
 npm i @aws-sdk/client-dynamodb
 ```
-- Zip the file so that it is ready for upload to lambda
+ - Zip the file so that it is ready for upload to lambda
 ```sh
 zip -r get.zip ./*
 ```
@@ -39,62 +39,62 @@ Once we test the lambda this is the output
 > ![Alt text](images/lambda.png?raw=true "The lambda queries dynamodb data")
 
 2. `Create a POST lambda file (nodejs)`
-- On the index.mjs
-- Initialize the folder for node js
+ - On the index.mjs
+ - Initialize the folder for node js
 ```sh
 npm init
 ``` 
-- Install all the client packages needed for nodejs to work with dynamoDB
+ - Install all the client packages needed for nodejs to work with dynamoDB
 ```sh
 npm i @aws-sdk/client-dynamodb
 ```
-- Zip the file so that it is ready for upload to lambda
+ - Zip the file so that it is ready for upload to lambda
 ```sh
 zip -r post.zip ./*
 ```
 3. `Create an update lambda file (nodejs)`
-- On the index.mjs
-- Initialize the folder for node js
+ - On the index.mjs
+ - Initialize the folder for node js
 ```sh
 npm init
 ``` 
-- Install all the client packages needed for nodejs to work with dynamoDB
+ - Install all the client packages needed for nodejs to work with dynamoDB
 ```sh
 npm i @aws-sdk/client-dynamodb
 ```
-- Zip the file so that it is ready for upload to lambda
+ - Zip the file so that it is ready for upload to lambda
 ```sh
 zip -r update.zip ./*
 ```
 4. `Create a delete lambda file (nodejs)`
-- On the index.mjs
-- Initialize the folder for node js
+ - On the index.mjs
+ - Initialize the folder for node js
 ```sh
 npm init
 ``` 
-- Install all the client packages needed for nodejs to work with dynamoDB
+ - Install all the client packages needed for nodejs to work with dynamoDB
 ```sh
 npm i @aws-sdk/client-dynamodb
 ```
-- Zip the file so that it is ready for upload to lambda
+ - Zip the file so that it is ready for upload to lambda
 ```sh
 zip -r delete.zip ./*
 ```
 
 ## API Gateway
 1. `Create our HTTP API gateway`
-- Create our Route and method `GET`
-- Under integrations, add the lambda function to connect to HTTP
+ - Create our Route and method `GET`
+ - Under integrations, add the lambda function to connect to HTTP
 > ![Alt text](images/api-gateway.png?raw=true "The lambda queries on our browser")
 
 2. On the created HTTP API gateway:
-- Add a `POST` method and integrate the lambda function to HTTP
+ - Add a `POST` method and integrate the lambda function to HTTP
 
 3. On the created HTTP API gateway:
-- Add an `UPDATE` method and integrate the lambda function to HTTP
+ - Add an `UPDATE` method and integrate the lambda function to HTTP
 
 4. On the created HTTP API gateway:
-- Add an `DELETE` method and integrate the lambda function to HTTP
+ - Add an `DELETE` method and integrate the lambda function to HTTP
 
 ## Postman
 1. Test the HTTP `GET` method using Postman. 
