@@ -13,15 +13,15 @@ Creating a serverless web application on AWS
 - Add some items to the table
 
 ## IAM
-- Add a role `praco-barista-coffee` that
+- Add a role `praco-barista-coffee` that:
   - Sends lambda logs to cloudwatch
   - A custom inline policy with PutItem,DeleteItem,GetItem,Scan,UpdateItem
 - Link this IAM to Lambda
 
 ## Lambda
-1. Create a `GET` lambda file (nodejs)
+1. `Create a GET lambda file (nodejs)`
 - On the index.mjs
-  - Add the table name and the partition key
+  - Add the table name and the partition key(primary id)
 - Initialize the folder for node js
 ```sh
 npm init
@@ -34,11 +34,11 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r get.zip ./*
 ```
-## The Lambda output 
-Once we run the lambda this is the output
+### The Lambda output 
+Once we test the lambda this is the output
 > ![Alt text](images/lambda.png?raw=true "The lambda queries dynamodb data")
 
-2. Create a `POST` lambda file (nodejs)
+2. `Create a POST lambda file (nodejs)`
 - On the index.mjs
 - Initialize the folder for node js
 ```sh
@@ -54,12 +54,13 @@ zip -r post.zip ./*
 ```
 
 ## API Gateway
-1. Create our API gateway
- - Create our Route and method `GET`
- - Under integrations, add the lambda function to connect to HTTP
+1. `Create our HTTP API gateway`
+- Create our Route and method `GET`
+- Under integrations, add the lambda function to connect to HTTP
 > ![Alt text](images/api-gateway.png?raw=true "The lambda queries on our browser")
 
-2. Add a `POST` method and integrate the lambda function to HTTP
+2. On the created HTTP API gateway:
+- Add a `POST` method and integrate the lambda function to HTTP
 
 ## Postman
 Test the HTTP `post` method using Postman. 
