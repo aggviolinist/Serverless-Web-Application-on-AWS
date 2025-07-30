@@ -104,5 +104,5 @@ zip -r delete.zip ./*
 3. Test the HTTP `UPDATE` method using Postman. 
 > ![Alt text](images/update.png?raw=true "Postman updates our table on the dynamoDB database")
 4. Test the HTTP `DELETE` method using Postman. 
-> ![Alt text](images/delete.png?raw=true "Postman deletes some content from our table in the dynamoDB database")
+> ![Alt text](images/delete_pic.png?raw=true "Postman deletes some content from our table in the dynamoDB database")
 
