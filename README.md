@@ -80,6 +80,12 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r delete.zip ./*
 ```
+----------------------------------------------------------------------------------------------------
+### Using layers using lambda
+----------------------------------------------------------------------------------------------------
+- Create the CRUD operations while removing the redundant code
+- Add the redundant nodejs code to util.mjs
+- Automate a zip operation using `bash`
 
 ## API Gateway
 1. `Create our HTTP API gateway`
@@ -105,4 +111,7 @@ zip -r delete.zip ./*
 > ![Alt text](images/update.png?raw=true "Postman updates our table on the dynamoDB database")
 4. Test the HTTP `DELETE` method using Postman. 
 > ![Alt text](images/delete_pic.png?raw=true "Postman deletes some content from our table in the dynamoDB database")
+
+
+
 
