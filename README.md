@@ -86,6 +86,7 @@ zip -r delete.zip ./*
 - Create the CRUD operations while removing the redundant code
 - Add the redundant nodejs code to util.mjs
 - Automate a zip operation using `bash`
+- Test using `Postman`
 
 ## API Gateway
 1. `Create our HTTP API gateway`
