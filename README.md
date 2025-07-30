@@ -66,6 +66,20 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r update.zip ./*
 ```
+4. `Create a delete lambda file (nodejs)`
+- On the index.mjs
+- Initialize the folder for node js
+```sh
+npm init
+``` 
+- Install all the client packages needed for nodejs to work with dynamoDB
+```sh
+npm i @aws-sdk/client-dynamodb
+```
+- Zip the file so that it is ready for upload to lambda
+```sh
+zip -r delete.zip ./*
+```
 
 ## API Gateway
 1. `Create our HTTP API gateway`
@@ -79,8 +93,16 @@ zip -r update.zip ./*
 3. On the created HTTP API gateway:
 - Add an `UPDATE` method and integrate the lambda function to HTTP
 
-## Postman
-Test the HTTP `post` method using Postman. 
-> ![Alt text](images/post_pic.png?raw=true "Postman updates data to our dynamoDB database")
+4. On the created HTTP API gateway:
+- Add an `DELETE` method and integrate the lambda function to HTTP
 
+## Postman
+1. Test the HTTP `GET` method using Postman. 
+> ![Alt text](images/get_pic.png?raw=true "Postman gets data to our dynamoDB database")
+2. Test the HTTP `POST` method using Postman. 
+> ![Alt text](images/post_pic.png?raw=true "Postman updates data to our dynamoDB database")
+3. Test the HTTP `UPDATE` method using Postman. 
+> ![Alt text](images/update.png?raw=true "Postman updates our table on the dynamoDB database")
+4. Test the HTTP `DELETE` method using Postman. 
+> ![Alt text](images/delete.png?raw=true "Postman deletes some content from our table in the dynamoDB database")
 
