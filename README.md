@@ -52,6 +52,20 @@ npm i @aws-sdk/client-dynamodb
 ```sh
 zip -r post.zip ./*
 ```
+3. `Create an update lambda file (nodejs)`
+- On the index.mjs
+- Initialize the folder for node js
+```sh
+npm init
+``` 
+- Install all the client packages needed for nodejs to work with dynamoDB
+```sh
+npm i @aws-sdk/client-dynamodb
+```
+- Zip the file so that it is ready for upload to lambda
+```sh
+zip -r update.zip ./*
+```
 
 ## API Gateway
 1. `Create our HTTP API gateway`
@@ -62,6 +76,11 @@ zip -r post.zip ./*
 2. On the created HTTP API gateway:
 - Add a `POST` method and integrate the lambda function to HTTP
 
+3. On the created HTTP API gateway:
+- Add an `UPDATE` method and integrate the lambda function to HTTP
+
 ## Postman
 Test the HTTP `post` method using Postman. 
+> ![Alt text](images/post_pic.png?raw=true "Postman updates data to our dynamoDB database")
+
 
