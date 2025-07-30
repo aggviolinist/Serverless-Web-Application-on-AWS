@@ -26,7 +26,7 @@ export const updateCoffee = async (event) => {
     if (!Name && !Price && availability === undefined)
         return createResponse(400, { error: "Nothing to update!" })
 
-    let updateExpression = `SET  ${Name ? "#name = :Name, " : ""}${Price ? "Price = :Price, " : ""}${availability ? "availability = :availability, " : ""}`.slice(0, -2);
+    let updateExpression = `SET  ${Name ? "#Name = :Name, " : ""}${Price ? "Price = :Price, " : ""}${availability ? "availability = :availability, " : ""}`.slice(0, -2);
 
     try {
 
@@ -38,7 +38,7 @@ export const updateCoffee = async (event) => {
             UpdateExpression: updateExpression,
             ...(Name && {
                 ExpressionAttributeNames: {
-                    "#name": "name", // name is a reserved keyword in DynamoDB
+                    "#Name": "Name", // name is a reserved keyword in DynamoDB
                 },
             }),
             ExpressionAttributeValues: {
