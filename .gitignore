@@ -4,3 +4,13 @@ lambda_functions/get/zip files/get(1).zip
 lambda_functions/post/node_modules
 lambda_functions/update/node_modules
 lambda_functions/delete/node_modules
+layers/nodejs/node_modules
+
+layers/nodejs/package-lock.json
+layers/nodejs/package.json
+
+layers/update.zip
+layers/post.zip
+layers/layer.zip
+layers/get.zip
+layers/delete.zip
