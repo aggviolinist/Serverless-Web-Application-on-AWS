@@ -7,6 +7,7 @@ Creating a serverless web application on AWS
 ### IAM
 ### API Gateway
 ### Postman
+### React (front end)
 
 ## DynamoDB
  - Create a dynamDB table with Partition key as coffeeID (String)
@@ -118,6 +119,14 @@ zip -r delete.zip ./*
 4. Test the HTTP `DELETE` method using Postman. 
 > ![Alt text](images/delete_pic.png?raw=true "Postman deletes some content from our table in the dynamoDB database")
 
-
+### React (front end)
+Create a react app and select the javascript variant
+```sh
+npm init
+npm create vite@latest .
+npm install
+npm install react-router-dom
+```
+Add the `.env` file with the API gateway url
 
 
