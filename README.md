@@ -122,7 +122,6 @@ zip -r delete.zip ./*
 ### React (front end)
 Create a react app and select the javascript variant
 ```sh
-npm init
 npm create vite@latest .
 npm install
 npm install react-router-dom
