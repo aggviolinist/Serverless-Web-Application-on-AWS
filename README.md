@@ -132,6 +132,11 @@ On the `.env` file add:
  - The gitpod server url
 
 Update the CORS on API gateway to be able to route traffic 
+ -  What allows your frontend (usually running in a browser) to communicate with your backend API even when they're hosted on different domains.
+ -  Add;
+   - Access-Control-Allow-Origin
+   -  Access-Control-Allow-Headers
+   -  Access-Control-Allow-Methods
 
 > ![Alt text](images/coffee1.png?raw=true "Output on website")
 > ![Alt text](images/coffee2.png?raw=true "Output on website")
