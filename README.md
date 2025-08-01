@@ -127,7 +127,11 @@ npm install
 npm install react-router-dom
 npm run dev
 ```
-Add the `.env` file with the API gateway url
+On the `.env` file add:
+ - the API gateway url
+ - The gitpod server url
+
+Update the CORS on API gateway to be able to route traffic 
 
 > ![Alt text](images/coffee1.png?raw=true "Output on website")
 > ![Alt text](images/coffee2.png?raw=true "Output on website")
