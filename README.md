@@ -125,7 +125,16 @@ Create a react app and select the javascript variant
 npm create vite@latest .
 npm install
 npm install react-router-dom
+npm run dev
 ```
 Add the `.env` file with the API gateway url
+
+> ![Alt text](images/coffee1.png?raw=true "Output on website")
+> ![Alt text](images/coffee2.png?raw=true "Output on website")
+> ![Alt text](images/coffee3.png?raw=true "Output on website")
+
+
+
+
 
 
