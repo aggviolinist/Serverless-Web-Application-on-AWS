@@ -2,7 +2,7 @@
 Creating a serverless web application on AWS 
 
 ## Tools
-### Lambda
+### Lambda (nodejs)
 ### DynamoDB
 ### IAM
 ### API Gateway
