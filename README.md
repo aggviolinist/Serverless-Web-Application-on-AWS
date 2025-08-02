@@ -8,6 +8,7 @@ Creating a serverless web application on AWS
 ### API Gateway
 ### Postman
 ### React (front end)
+### Cognito
 
 ## DynamoDB
  - Create a dynamDB table with Partition key as coffeeID (String)
