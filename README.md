@@ -164,6 +164,10 @@ Update the CORS on API gateway to be able to route traffic
 
 ## 8. CDN (Delivering our react files to our audience worldwide)
 - Create `S3` bucket and upload our web files
+ - Compile the webfiles 
+ ```sh
+  npm run build
+```
 - Create the `Cloudfront` distribution and connect it to the s3 bucket via an OAC policy.
 
 
