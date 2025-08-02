@@ -84,7 +84,7 @@ zip -r delete.zip ./*
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
 
-### Using layers using lambda
+### 5. Using layers using lambda
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ zip -r delete.zip ./*
 4. On the created HTTP API gateway:
  - Add an `DELETE` method and integrate the lambda function to HTTP
 
-## Postman
+## 6. Postman
 1. Test the HTTP `GET` method using Postman. 
 > ![Alt text](images/get_pic.png?raw=true "Postman gets data to our dynamoDB database")
 2. Test the HTTP `POST` method using Postman. 
@@ -142,14 +142,25 @@ Update the CORS on API gateway to be able to route traffic
 > ![Alt text](images/coffee2.png?raw=true "Output on website")
 > ![Alt text](images/coffee3.png?raw=true "Output on website")
 
-## Adding cognito
+## 7. Adding cognito to only allow authenticated users
 ### Cognito
 - Create a single page User pool
-- Add email and return URL (http://localhost:5173/)
+- Add email as the athentication method and return URL (http://gitpod-id)
 ### API Gateway
 - Create authorizer
-- Add the Issuer URL as the ` Token signing key URL` and Audience as `Client ID` on cognito
+- On API Gateway, add the Issuer URL as the ` Token signing key URL` and Audience as `Client ID` from cognito
 - Add Authorizers for coffeeShop and authorize to each method `GET`,`POST`,`DELETE`,`UPDATE`
+- Add `authorization` for Access-Control-Allow-Headers to be able to access the headers on our browser.
+### On gitpod
+- Install the oidc-client-ts  and react-oidc-context  libraries.
+- Configure react-oidc-context with the OIDC properties of your user pool.
+- On the Home.jsx add `http://gitpod-io` sign-in & sign-out url that initiates an authorization request with your user pool OIDC provider and initiate a logout request respectively.
+
+> ![Alt text](images/cog1.png?raw=true "Output on website after the update")
+> ![Alt text](images/cog2.png?raw=true "Output on website after the update")
+> ![Alt text](images/cog3.png?raw=true "Output on website after the update")
+> ![Alt text](images/cog4.png?raw=true "Output on website after the update")
+
 
 
 

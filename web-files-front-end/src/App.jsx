@@ -1,59 +1,47 @@
-import { useEffect, useState } from "react";
-import { fetchCoffees, createCoffee } from "./utils/apis";
-import { useNavigate } from "react-router-dom";
+
+////////////
 import "./App.css";
-import reactImg from "./assets/react.svg";
+import Home from "./Home";
+import { deleteAccessToken } from "./utils/apis";
 
-const App = () => {
-  const [coffees, setCoffees] = useState([]);
-  const [coffeeID, setCoffeeID] = useState("");
-  const [name, setName] = useState("");
-  const [Price, setPrice] = useState("");
-  const [availability, setAvailable] = useState(false);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchCoffees().then(data => setCoffees(data.Items || []));
-  }, []);
+// App.js
 
-  const handleAddCoffee = async () => {
-    if (!coffeeID || !name || !Price) {
-      alert("Please fill all fields");
-      return;
-    }
-    const newCoffee = { coffeeID, name, Price: Number(Price), availability };
-    await createCoffee(newCoffee);
-    setCoffees([...coffees, newCoffee]);
-    setCoffeeID("");
-    setName("");
-    setPrice("");
-    setAvailable(false);
+import { useAuth } from "react-oidc-context";
+
+function App() {
+  const auth = useAuth();
+
+  const signOutRedirect = () => {
+    const clientId = "4m39hhf38sj5sa0agk8obe47nk";
+    const logoutUri = "https://5174-aggviolinis-serverlessw-rmody38q4la.ws-eu120.gitpod.io";
+    const cognitoDomain = "https://us-east-1prlfjww7n.auth.us-east-1.amazoncognito.com";
+    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
+  if (auth.isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (auth.error) {
+    return <div>Encountering error... {auth.error.message}</div>;
+  }
+
+  if (auth.isAuthenticated) {
+    return (
+      <>
+        <button onClick={() => auth.removeUser()}>Sign out</button>
+        <Home/>
+      </>
+    );
+  }
+
   return (
-    <div className="container">
-      <h1>Coffee List</h1>
-      <div className="add-coffee-form">
-        <input className="styled-input" type="text" placeholder="Coffee ID" value={coffeeID} onChange={(e) => setCoffeeID(e.target.value)} />
-        <input className="styled-input" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className="styled-input" type="number" placeholder="Price" value={Price} onChange={(e) => setPrice(e.target.value)} />
-        <label>
-          <input type="checkbox" checked={availability} onChange={(e) => setAvailable(e.target.checked)} /> Available
-        </label>
-        <button onClick={handleAddCoffee}>Add Coffee</button>
-      </div>
-      <div className="coffee-list">
-        {coffees.map(coffee => (
-          <div key={coffee.coffeeID} className="coffee-card" onClick={() => navigate(`/details/${coffee.coffeeID}`)}>
-            <h3>{coffee.name}</h3>
-            <img src={reactImg} alt="React Logo" />
-            <p>Price: ${coffee.Price}</p>
-            <p>{coffee.availability ? "Available" : "Not Available"}</p>
-          </div>
-        ))}
-      </div>
+    <div>
+      <button onClick={() => auth.signinRedirect()}>Sign in</button>
+      <button onClick={() => signOutRedirect()}>Sign out</button>
     </div>
   );
-};
+}
 
 export default App;
