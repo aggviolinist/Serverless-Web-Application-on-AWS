@@ -142,6 +142,15 @@ Update the CORS on API gateway to be able to route traffic
 > ![Alt text](images/coffee2.png?raw=true "Output on website")
 > ![Alt text](images/coffee3.png?raw=true "Output on website")
 
+## Adding cognito
+### Cognito
+- Create a single page User pool
+- Add email and return URL (http://localhost:5173/)
+### API Gateway
+- Create authorizer
+- Add the Issuer URL as the ` Token signing key URL` and Audience as `Client ID` on cognito
+- Add Authorizers for coffeeShop and authorize to each method `GET`,`POST`,`DELETE`,`UPDATE`
+
 
 
 
