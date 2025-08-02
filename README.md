@@ -138,7 +138,7 @@ Update the CORS on API gateway to be able to route traffic
    - Access-Control-Allow-Origin
    -  Access-Control-Allow-Headers
    -  Access-Control-Allow-Methods
-
+### Front end output without cognito
 > ![Alt text](images/coffee1.png?raw=true "Output on website")
 > ![Alt text](images/coffee2.png?raw=true "Output on website")
 > ![Alt text](images/coffee3.png?raw=true "Output on website")
@@ -156,7 +156,7 @@ Update the CORS on API gateway to be able to route traffic
 - Install the oidc-client-ts  and react-oidc-context  libraries.
 - Configure react-oidc-context with the OIDC properties of your user pool.
 - On the Home.jsx add `http://gitpod-io` sign-in & sign-out url that initiates an authorization request with your user pool OIDC provider and initiate a logout request respectively.
-
+### The output with Cognito authentication
 > ![Alt text](images/cog1.png?raw=true "Output on website after the update")
 > ![Alt text](images/cog2.png?raw=true "Output on website after the update")
 > ![Alt text](images/cog3.png?raw=true "Output on website after the update")
