@@ -162,9 +162,9 @@ Update the CORS on API gateway to be able to route traffic
 > ![Alt text](images/cog3.png?raw=true "Output on website after the update")
 > ![Alt text](images/cog4.png?raw=true "Output on website after the update")
 
-
-
-
+## 8. CDN (Delivering our react files to our audience worldwide)
+- Create `S3` bucket and upload our web files
+- Create the `Cloudfront` distribution and connect it to the s3 bucket via an OAC policy.
 
 
 
