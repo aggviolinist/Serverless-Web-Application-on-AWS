@@ -15,7 +15,4 @@ layers/layer.zip
 layers/get.zip
 layers/delete.zip
 
-
-web-files-front-end/.env
-
 *.env
