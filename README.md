@@ -1,6 +1,6 @@
 # Serverless-Web-App-on-AWS-
 Creating a serverless web application on AWS 
-> ![Alt text](python/aws_web_app_architecture.png?raw=true "The architecture diagram")
+> ![Alt text](images/architecture1.png?raw=true "The architecture diagram")
 
 
 ## Tools
