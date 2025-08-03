@@ -18,6 +18,7 @@ Creating a serverless web application on AWS
  - Add some items to the table
 
 ## IAM
+Create an IAM role that gives the Lambda function to access the DynamoDB
  - Add a role `praco-barista-coffee` that:
     - Sends lambda logs to cloudwatch
     - A custom inline policy with PutItem,DeleteItem,GetItem,Scan,UpdateItem
