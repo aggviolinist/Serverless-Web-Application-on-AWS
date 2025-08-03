@@ -9,6 +9,7 @@ Creating a serverless web application on AWS
 ### Postman
 ### React (front end)
 ### Cognito
+### Cloudfront
 
 ## DynamoDB
  - Create a dynamDB table with Partition key as coffeeID (String)
@@ -167,8 +168,18 @@ Update the CORS on API gateway to be able to route traffic
  - Compile the webfiles 
  ```sh
   npm run build
+  aws s3 cp dist s3://kahawa-bucket/dist/ --recursive
 ```
 - Create the `Cloudfront` distribution and connect it to the s3 bucket via an OAC policy.
 
-
+## Routing all `/coffee` requests to API gateway
+- In origins in cloudfront, create an origin 
+- Select `API gateway` as the origin we want to route traffic
+- Create a behaviour with `/coffee*`and add the API gateway
+- On our gitpod we need to replace the `VITE_API_URL` from `API gateway URL` to `Cloudfront`
+ - Compile the webfiles 
+ ```sh
+  npm run build
+  aws s3 cp dist s3://kahawa-bucket/dist/ --recursive
+```
 
