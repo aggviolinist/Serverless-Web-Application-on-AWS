@@ -16,3 +16,5 @@ layers/get.zip
 layers/delete.zip
 
 *.env
+
+python/aws_web_app_architecture
