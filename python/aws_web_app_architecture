@@ -1,0 +1,24 @@
+digraph WebAppArchitecture {
+	layout=dot rankdir=LR
+	node [fillcolor=lightgrey fontname=Helvetica fontsize=10 shape=rect style=filled]
+	User [label=User]
+	CloudFront [label="Amazon CloudFront"]
+	S3 [label="Amazon S3 (Private Bucket)"]
+	ReactApp [label="React Static Files"]
+	"API Gateway" [label="Amazon API Gateway"]
+	Cognito [label="Amazon Cognito"]
+	Lambda [label="AWS Lambda
+(GET, POST, PUT, DELETE)"]
+	DynamoDB [label="Amazon DynamoDB"]
+	Postman [label="Postman (API Testing)"]
+	User -> CloudFront [label="Access React App"]
+	CloudFront -> S3 [label="Fetch Static Files"]
+	User -> Cognito [label="Login / JWT Token"]
+	User -> "API Gateway" [label="API Requests
+(with JWT)" style=dashed]
+	Postman -> "API Gateway" [label="Test API"]
+	"API Gateway" -> Cognito [label="JWT Validation" style=dotted]
+	"API Gateway" -> Lambda [label="Invoke Function"]
+	Lambda -> DynamoDB [label="CRUD Operations"]
+	CloudFront -> "API Gateway" [label="API Route Forwarding"]
+}
