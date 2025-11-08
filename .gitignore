@@ -18,3 +18,5 @@ layers/delete.zip
 *.env
 
 python/aws_web_app_architecture
+bin/awscliv2.zip
+bin/aws
