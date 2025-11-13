@@ -57,5 +57,9 @@ aws s3 cp ./V1__nest.sql  s3://dev-app-webfile/
 aws s3 cp ./NestAppServiceProvider.php s3://dev-app-webfile/
 
  ```
-
+Big files are not accepted on git so clear them from git
+```sh
+git filter-repo --path "Project 2 Dynamic site/nest.zip" --invert-paths
+git push origin main --force
+```
 ### 5.
