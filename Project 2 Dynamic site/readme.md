@@ -48,7 +48,10 @@ In the VPC Console, under Private Connections, create an EC2 Instance Connect En
 💡This enables secure SSH access to private EC2 instances without exposing port 22 publicly or using a Bastion Host.
 
 ### 4. Storage (S3)
-Create an S3 bucket ```sh aws s3 mb s3://dev-app-webfile```
+Create an S3 bucket 
+```sh 
+aws s3 mb s3://dev-app-webfile
+```
 
 Upload both: Web application files (e.g., HTML, CSS, PHP, SQL) 
 ```sh
@@ -62,4 +65,27 @@ Big files are not accepted on git so clear them from git
 git filter-repo --path "Project 2 Dynamic site/nest.zip" --invert-paths
 git push origin main --force
 ```
-### 5.
+### 5. IAM 
+Create a custom policy 
+This policy does the following:
+- Gives EC2 specific permisions with 
+   - S3: ListBucket, GetObject
+   - Secerets Manager: GetSecretValue, DescribeSecret
+Create the role and add our custom policy
+ ```sh
+ dev-role-s3-secrets-manager
+```
+
+### 5. RDS
+Create the Subnet group: Select the database subnets
+Create the MYSQL RDS using the Subnet Group created above
+  - Use Standard create
+  - Use updated DB engine
+  - Use Secret Manager to manage credentials
+  - Create an Initial Database Name
+### 6. EC2(Database Migrator)
+Create an EC2 instance to migrate the SQL to RDS
+ - Proceed without Key pair, we don't need to SSH publicly 
+ - Add our IAM role ` dev-role-s3-secrets-manager` so our EC2 can get access to S3 and Secrets manager
+ - `Connect using a Private IP` since we have our `EC2 Instance Connect Endpoint`
+ - SSH into the Instance and Copy the Database from S3 to RDS using `db-migrate-script.sh`
