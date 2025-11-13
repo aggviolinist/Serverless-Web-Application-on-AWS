@@ -89,3 +89,28 @@ Create an EC2 instance to migrate the SQL to RDS
  - Add our IAM role ` dev-role-s3-secrets-manager` so our EC2 can get access to S3 and Secrets manager
  - `Connect using a Private IP` since we have our `EC2 Instance Connect Endpoint`
  - SSH into the Instance and Copy the Database from S3 to RDS using `db-migrate-script.sh`
+
+### 7. EC2 (Web Server)
+Create the EC2 instance to host our server now
+ - Proceed without Key pair, we don't need to SSH publicly 
+ - Add our IAM role ` dev-role-s3-secrets-manager` so our EC2 can get access to S3 and Secrets manager
+ - `Connect using a Private IP` since we have our `EC2 Instance Connect Endpoint`
+ - SSH into the Instance and Copy the Webfiles from S3 to EC2 using `deployment-script.sh`
+ - Do server config now
+
+
+### 8. ALB
+- First create a target group and add these success codes `200,301,302`
+- Create an ALB and test using the DNS given
+
+### 9. AMI
+- Using our server, create the AMI with `Reboot instance`
+   - When selected, Amazon EC2 reboots the instance so that data is at rest when snapshots of the attached volumes are taken. This ensures data consistency
+
+### 10. Autoscaling groups
+- First create the launch template
+- Select the AMI
+- Select the network config we created `dev-vpc`
+- Turn on Health checks
+- Create ASG
+

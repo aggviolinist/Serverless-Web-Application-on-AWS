@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Create an environment variable for the S3 zip file
-export S3_URI=""
+export S3_URI="dev-app-webfile"
 
 # Update the packages on the EC2 instance
 sudo yum update -y
 
-# Install the Apache HTTP Server
+# Install the Apache HTTP Server  
 sudo yum install -y httpd
 
 # Change to the Apache web root directory
