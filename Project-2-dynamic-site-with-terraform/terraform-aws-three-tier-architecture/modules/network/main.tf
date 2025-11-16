@@ -39,6 +39,7 @@ resource "aws_subnet" "private_subnet" {
 
   tags = {
     Name = "${var.project_name}-private-subnet-${count.index + 1}"
+    tier = count.index < 2 ? "app" : "db"
   }
 }
 
