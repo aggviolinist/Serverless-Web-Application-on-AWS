@@ -20,3 +20,8 @@ variable "instance_type" {
   description = "The Instance type gotten from root"
   type        = string
 }
+#Database Instance Class
+variable "instance_class" {
+  description = "The Database Instance class gotten from root"
+  type        = string
+}

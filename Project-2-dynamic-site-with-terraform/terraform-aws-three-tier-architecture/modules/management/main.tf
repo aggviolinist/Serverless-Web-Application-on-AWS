@@ -3,13 +3,14 @@ resource "aws_iam_policy" "custom_policy_for_s3_secrets_manager" {
   description = "Policy to give EC2 instance full access to secrets manager and s3"
 
   policy = jsonencode({
-    version = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Effect = "Allow"
         Action = [
           "s3:GetObject",
           "s3:ListBucket",
+          "s3:ListAllMyBuckets",
           "secretsmanager:GetSecretValue",
           "secretsmanager:DescribeSecret"
         ]
@@ -24,7 +25,7 @@ resource "aws_iam_role" "custom_role_for_s3_secrets_manager" {
   description = "Role to give EC2 instance full access to secrets manager and s3"
 
   assume_role_policy = jsonencode({
-    version = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Effect = "Allow"

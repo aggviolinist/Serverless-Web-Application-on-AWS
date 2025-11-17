@@ -36,3 +36,10 @@ module "storage" {
   source       = "./modules/storage"
   project_name = var.project_name
 }
+
+module "database" {
+  source = "./modules/database"
+  project_name = var.project_name
+  private_subnets = module.network.private_subnets
+  instance_class = var.instance_class
+}
