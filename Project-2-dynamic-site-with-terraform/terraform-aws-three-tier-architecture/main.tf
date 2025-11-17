@@ -38,8 +38,11 @@ module "storage" {
 }
 
 module "database" {
-  source = "./modules/database"
-  project_name = var.project_name
+  source          = "./modules/database"
+  project_name    = var.project_name
   private_subnets = module.network.private_subnets
-  instance_class = var.instance_class
+  instance_class  = var.instance_class
+  db_name         = var.db_name
+  engine          = var.engine
+  engine_version  = var.engine_version
 }
