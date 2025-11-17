@@ -9,3 +9,14 @@ variable "vpc_cidr" {
   description = "VPC CIDR value"
   type        = string
 }
+
+#Instance_ami
+variable "ami" {
+  description = "Image for my instance"
+  type        = string
+}
+#Instace_type
+variable "instance_type" {
+  description = "The Instance type gotten from root"
+  type        = string
+}
