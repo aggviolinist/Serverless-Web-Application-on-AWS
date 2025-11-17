@@ -2,7 +2,7 @@
 resource "aws_security_group" "alb_server_sg" {
   name        = "${var.project_name}-alb-sg"
   description = "Allow Traffic from net to our server"
-  vpc_id      = aws_vpc.three_tier_vpc.id
+  vpc_id      = var.vpc_id
 
   ingress {
     description = "HTTP"
@@ -36,7 +36,7 @@ resource "aws_security_group" "alb_server_sg" {
 resource "aws_security_group" "eice_ssh_sg" {
   name        = "${var.project_name}-ssh-sg"
   description = "Allow SSH traffic to Web Server"
-  vpc_id      = aws_vpc.three_tier_vpc.id
+  vpc_id      = var.vpc_id
 
 
   egress {
@@ -56,7 +56,7 @@ resource "aws_security_group" "eice_ssh_sg" {
 resource "aws_security_group" "web_server_sg" {
   name        = "${var.project_name}-web-sg"
   description = "Allow Inbound and Outbound HTTP/HTTPS to our Web Server"
-  vpc_id      = aws_vpc.three_tier_vpc.id
+  vpc_id      = var.vpc_id
 
   ingress {
 
@@ -97,7 +97,7 @@ resource "aws_security_group" "web_server_sg" {
 resource "aws_security_group" "database-sg" {
   name        = "${var.project_name}-db-sg"
   description = "Allow SQL traffic only from my Web server"
-  vpc_id      = aws_vpc.three_tier_vpc.id
+  vpc_id      = var.vpc_id
 
   ingress {
     description     = "MYSQL"

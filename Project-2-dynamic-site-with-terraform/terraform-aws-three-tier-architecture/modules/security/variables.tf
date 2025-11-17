@@ -6,6 +6,10 @@ variable "project_name" {
 
 # Network
 variable "vpc_cidr" {
-  description = "VPC CIDR value"
+  description = "The VPC Cidr"
+  type        = string
+}
+variable "vpc_id" {
+  description = "The VPC ID on our module"
   type        = string
 }

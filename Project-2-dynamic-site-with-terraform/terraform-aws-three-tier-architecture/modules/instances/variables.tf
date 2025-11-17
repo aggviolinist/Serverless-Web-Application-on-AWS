@@ -4,8 +4,16 @@ variable "project_name" {
   type        = string
 }
 
-# Network
-variable "vpc_cidr" {
-  description = "VPC CIDR value"
+# private Subnets
+variable "private_subnets" {
+  description = "List of subnets from network module"
+  type        = list(string)
+
+}
+
+# security groups
+variable "eice_sg_id" {
+  description = "Security group for the EC2 Instance Connection Endpoint"
   type        = string
+
 }
