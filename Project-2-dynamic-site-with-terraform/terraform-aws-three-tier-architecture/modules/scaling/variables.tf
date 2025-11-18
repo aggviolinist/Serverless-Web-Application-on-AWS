@@ -18,8 +18,8 @@ variable "web_server_sg_id" {
   type        = string
 }
 variable "ec2instance_three_tier_instance_profile" {
-    description = "This profile gives the ec2 instance s3 and secrets manager permission "
-    type = string 
+  description = "This profile gives the ec2 instance s3 and secrets manager permission "
+  type        = string
 }
 variable "private_subnets" {
   description = "List of subnets from network module from module network"
@@ -28,5 +28,5 @@ variable "private_subnets" {
 variable "alb_target_group" {
   description = "ALB target group from module traffic"
   type        = string
-  
+
 }

@@ -12,5 +12,5 @@ variable "scale_down_autoscaling_policy" {
 }
 variable "three_tier_asg" {
   description = "three tier ASG"
-  type = string
+  type        = string
 }

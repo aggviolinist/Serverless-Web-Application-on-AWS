@@ -9,10 +9,10 @@
 # }
 
 resource "aws_launch_template" "three_tier_launch_template" {
-  name_prefix = "${var.project_name}-launch-template"
-  image_id      = var.ami
-  instance_type = var.instance_type
-  vpc_security_group_ids = [ var.web_server_sg_id ]
+  name_prefix            = "${var.project_name}-launch-template"
+  image_id               = var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [var.web_server_sg_id]
   iam_instance_profile {
     name = var.ec2instance_three_tier_instance_profile
   }
@@ -26,18 +26,18 @@ resource "aws_launch_template" "three_tier_launch_template" {
   monitoring {
     enabled = true
   }
-  
+
 }
 
 resource "aws_autoscaling_group" "three_tier_asg" {
-  name = "${var.project_name}-asg"
-  desired_capacity   = 2
-  max_size           = 4
-  min_size           = 1
-  health_check_type = "ELB"
+  name                      = "${var.project_name}-asg"
+  desired_capacity          = 2
+  max_size                  = 4
+  min_size                  = 1
+  health_check_type         = "ELB"
   health_check_grace_period = 300
-  vpc_zone_identifier = var.private_subnets
-  target_group_arns = [ var.alb_target_group]
+  vpc_zone_identifier       = var.private_subnets
+  target_group_arns         = [var.alb_target_group]
 
   launch_template {
     id      = aws_launch_template.three_tier_launch_template.id
@@ -62,7 +62,7 @@ resource "aws_autoscaling_group" "three_tier_asg" {
     value               = "dev"
     propagate_at_launch = true
   }
-   # Wait for instances to be healthy before considering deployment complete
+  # Wait for instances to be healthy before considering deployment complete
   lifecycle {
     create_before_destroy = true
   }
@@ -70,17 +70,17 @@ resource "aws_autoscaling_group" "three_tier_asg" {
 
 # Scaling policies
 resource "aws_autoscaling_policy" "scale_up" {
-    name = "${var.project_name}-scale-up"
-    autoscaling_group_name = aws_autoscaling_group.three_tier_asg.name
-    scaling_adjustment = 1
-    adjustment_type = "ChangeInCapacity"
-    cooldown = 300
+  name                   = "${var.project_name}-scale-up"
+  autoscaling_group_name = aws_autoscaling_group.three_tier_asg.name
+  scaling_adjustment     = 1
+  adjustment_type        = "ChangeInCapacity"
+  cooldown               = 300
 }
 
 resource "aws_autoscaling_policy" "scale_down" {
-    name = "${var.project_name}-scale-down"
-    autoscaling_group_name = aws_autoscaling_group.three_tier_asg.name
-    scaling_adjustment = 1
-    adjustment_type = "ChangeInCapacity"
-    cooldown = 300
+  name                   = "${var.project_name}-scale-down"
+  autoscaling_group_name = aws_autoscaling_group.three_tier_asg.name
+  scaling_adjustment     = 1
+  adjustment_type        = "ChangeInCapacity"
+  cooldown               = 300
 }
