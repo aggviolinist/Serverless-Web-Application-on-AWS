@@ -25,3 +25,8 @@ variable "private_subnets" {
   description = "List of subnets from network module from module network"
   type        = list(string)
 }
+variable "alb_target_group" {
+  description = "ALB target group from module traffic"
+  type        = string
+  
+}
