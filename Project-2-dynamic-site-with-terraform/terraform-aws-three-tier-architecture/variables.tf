@@ -41,5 +41,6 @@ variable "db_name" {
 variable "db_username" {
   description = "The name of the DB username gotten from root"
   type        = string
+  sensitive   = true
 }
 

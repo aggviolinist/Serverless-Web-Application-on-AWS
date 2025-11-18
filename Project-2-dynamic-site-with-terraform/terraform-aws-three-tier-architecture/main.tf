@@ -45,6 +45,6 @@ module "database" {
   db_name         = var.db_name
   engine          = var.engine
   engine_version  = var.engine_version
-  db_username = var.db_username
-  rds_sg_id = module.security.rds_sg_id
+  db_username     = var.db_username
+  rds_sg_id       = module.security.rds_sg_id
 }

@@ -1,6 +1,6 @@
 #subnet group
 resource "aws_db_subnet_group" "three_tier_app_subnet_group" {
-  name       = "three-tier-app-subnet-group"
+  name       = "${lower(replace(var.project_name, "_", "-"))}-subnet-group"
   subnet_ids = [var.private_subnets[2], var.private_subnets[3]]
 
   tags = {
@@ -42,7 +42,7 @@ resource "aws_secretsmanager_secret_version" "rds_secret_version" {
 
 #rds
 resource "aws_db_instance" "three_tier_rds_database" {
-  identifier             = "${var.project_name}-db"
+  identifier             = "${lower(replace(var.project_name, "_", "-"))}-db"
   db_name                = var.db_name
   instance_class         = var.instance_class
   engine                 = var.engine

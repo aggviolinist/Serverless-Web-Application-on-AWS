@@ -28,7 +28,8 @@ variable "db_name" {
   description = "The name of the Database gotten from root"
   type        = string
 }
-variable "c" {
+variable "db_username" {
   description = "The username of DB"
   type        = string
+  sensitive   = true
 }
