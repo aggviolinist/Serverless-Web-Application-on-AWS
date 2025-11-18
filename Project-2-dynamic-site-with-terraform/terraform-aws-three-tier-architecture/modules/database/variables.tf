@@ -28,3 +28,7 @@ variable "db_name" {
   description = "The name of the Database gotten from root"
   type        = string
 }
+variable "c" {
+  description = "The username of DB"
+  type        = string
+}

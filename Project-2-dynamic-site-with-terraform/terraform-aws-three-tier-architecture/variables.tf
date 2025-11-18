@@ -37,3 +37,9 @@ variable "db_name" {
   description = "The name of the Database gotten from root"
   type        = string
 }
+
+variable "db_username" {
+  description = "The name of the DB username gotten from root"
+  type        = string
+}
+
